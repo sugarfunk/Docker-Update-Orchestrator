@@ -9,6 +9,7 @@ celery_app = Celery(
     include=[
         "app.tasks.discovery",
         "app.tasks.updates",
+        "app.tasks.dependencies",
         "app.tasks.health_checks",
         "app.tasks.notifications",
     ]
@@ -40,6 +41,10 @@ celery_app.conf.beat_schedule = {
     },
     "daily-digest": {
         "task": "app.tasks.notifications.send_daily_digest",
+        "schedule": 86400.0,  # Once per day
+    },
+    "analyze-dependencies": {
+        "task": "app.tasks.dependencies.analyze_all_dependencies",
         "schedule": 86400.0,  # Once per day
     },
 }

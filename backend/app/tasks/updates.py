@@ -219,6 +219,8 @@ def execute_update(update_id: str):
 
 async def _execute_update_async(update_id: str):
     """Async implementation of execute_update"""
+    from ..services.update_orchestrator import update_orchestrator
+
     async with async_session_maker() as session:
         try:
             result = await session.execute(
@@ -230,16 +232,18 @@ async def _execute_update_async(update_id: str):
                 logger.error(f"Update {update_id} not found")
                 return
 
-            # TODO: Implement actual update execution logic
-            # This would involve:
-            # 1. Pull new image
-            # 2. Stop old container
-            # 3. Create backup if configured
-            # 4. Start new container
-            # 5. Run health checks
-            # 6. Rollback if health checks fail
+            logger.info(f"Starting update execution for {update_id}")
 
-            logger.info(f"Update execution placeholder for update {update_id}")
+            # Execute update with full orchestration
+            success, message = await update_orchestrator.execute_update(
+                update_id=update_id,
+                session=session
+            )
+
+            if success:
+                logger.info(f"Update {update_id} completed successfully: {message}")
+            else:
+                logger.error(f"Update {update_id} failed: {message}")
 
         except Exception as e:
             logger.error(f"Error executing update {update_id}: {str(e)}")
