@@ -1,0 +1,69 @@
+# Core Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy==2.0.25
+alembic==1.13.1
+psycopg2-binary==2.9.9
+asyncpg==0.29.0
+
+# Task Queue
+celery==5.3.6
+redis==5.0.1
+flower==2.0.1
+
+# Docker & SSH
+docker==7.0.0
+paramiko==3.4.0
+python-dotenv==1.0.1
+
+# LLM Integration
+litellm==1.17.9
+openai==1.10.0
+anthropic==0.8.1
+
+# HTTP & API Clients
+httpx==0.26.0
+aiohttp==3.9.1
+requests==2.31.0
+
+# Changelog & Parsing
+beautifulsoup4==4.12.3
+lxml==5.1.0
+python-dateutil==2.8.2
+semver==3.0.2
+packaging==23.2
+
+# Git Integration
+gitpython==3.1.41
+
+# Notifications
+ntfy==2.7.0
+
+# Email
+aiosmtplib==3.0.1
+email-validator==2.1.0
+
+# Security & Auth
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# Monitoring & Logging
+prometheus-client==0.19.0
+structlog==24.1.0
+
+# Utilities
+croniter==2.0.1
+pytz==2024.1
+pyyaml==6.0.1
+tenacity==8.2.3
+
+# Testing
+pytest==7.4.4
+pytest-asyncio==0.23.3
+pytest-cov==4.1.0
+httpx==0.26.0
