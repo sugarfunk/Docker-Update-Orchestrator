@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 import logging
 from .core.config import settings
 from .core.database import init_db, close_db
-from .api import servers, containers, updates, health, notifications, config as config_api
+from .api import servers, containers, updates, health, notifications, config as config_api, dependencies, rollback
 
 # Configure logging
 logging.basicConfig(
@@ -51,6 +51,8 @@ app.add_middleware(
 app.include_router(servers.router, prefix=f"{settings.API_V1_PREFIX}/servers", tags=["Servers"])
 app.include_router(containers.router, prefix=f"{settings.API_V1_PREFIX}/containers", tags=["Containers"])
 app.include_router(updates.router, prefix=f"{settings.API_V1_PREFIX}/updates", tags=["Updates"])
+app.include_router(dependencies.router, prefix=f"{settings.API_V1_PREFIX}/dependencies", tags=["Dependencies"])
+app.include_router(rollback.router, prefix=f"{settings.API_V1_PREFIX}/rollback", tags=["Rollback"])
 app.include_router(health.router, prefix=f"{settings.API_V1_PREFIX}/health", tags=["Health"])
 app.include_router(notifications.router, prefix=f"{settings.API_V1_PREFIX}/notifications", tags=["Notifications"])
 app.include_router(config_api.router, prefix=f"{settings.API_V1_PREFIX}/config", tags=["Configuration"])

@@ -320,15 +320,21 @@ MIT License - see [LICENSE](LICENSE) file for details.
 - GitHub Issues: Report bugs and request features
 - Discussions: Ask questions and share ideas
 
-## 🚧 Roadmap
+## ✅ Completed Features
 
-- [ ] Dependency analysis service (automatic detection)
-- [ ] Full update orchestration with health checks
-- [ ] Complete rollback implementation
-- [ ] GitOps integration
+- [x] **Dependency Analysis Service** - Automatic detection of service dependencies
+- [x] **Full Update Orchestration** - Complete update execution with health checks
+- [x] **Comprehensive Health Checks** - HTTP, TCP, Docker, log analysis, resource monitoring
+- [x] **Rollback System** - Automatic rollback on failure with backup restoration
+- [x] **Backup & Restore** - Container configuration and volume backups
+
+## 🚧 Future Roadmap
+
+- [ ] GitOps integration (commit changes to git)
 - [ ] Blue-green deployment support
 - [ ] A/B testing capabilities
 - [ ] Prometheus/Grafana integration
+- [ ] Volume snapshot integration
 - [ ] Mobile app
 - [ ] Multi-tenant support
 - [ ] Kubernetes support
